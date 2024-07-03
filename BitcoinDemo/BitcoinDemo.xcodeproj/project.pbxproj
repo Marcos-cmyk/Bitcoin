@@ -14,6 +14,12 @@
 		EF74913A2C35C36D00FF6AD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF7491382C35C36D00FF6AD9 /* Main.storyboard */; };
 		EF74913C2C35C36F00FF6AD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF74913B2C35C36F00FF6AD9 /* Assets.xcassets */; };
 		EF74913F2C35C36F00FF6AD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF74913D2C35C36F00FF6AD9 /* LaunchScreen.storyboard */; };
+		EF7491472C35C47400FF6AD9 /* ImportAccountFromMnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7491462C35C47400FF6AD9 /* ImportAccountFromMnemonicViewController.swift */; };
+		EF7491492C35C4E400FF6AD9 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7491482C35C4E400FF6AD9 /* CreateAccountViewController.swift */; };
+		EF74914B2C35C4FF00FF6AD9 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF74914A2C35C4FF00FF6AD9 /* TransferViewController.swift */; };
+		EF74914D2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF74914C2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift */; };
+		EF74914F2C35C5A600FF6AD9 /* FeeEstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF74914E2C35C5A600FF6AD9 /* FeeEstimateViewController.swift */; };
+		EF7491512C35C6F000FF6AD9 /* GetBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7491502C35C6F000FF6AD9 /* GetBalanceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +33,12 @@
 		EF74913B2C35C36F00FF6AD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF74913E2C35C36F00FF6AD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF7491402C35C36F00FF6AD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF7491462C35C47400FF6AD9 /* ImportAccountFromMnemonicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAccountFromMnemonicViewController.swift; sourceTree = "<group>"; };
+		EF7491482C35C4E400FF6AD9 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		EF74914A2C35C4FF00FF6AD9 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
+		EF74914C2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAccountFromPrivateKeyViewController.swift; sourceTree = "<group>"; };
+		EF74914E2C35C5A600FF6AD9 /* FeeEstimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeEstimateViewController.swift; sourceTree = "<group>"; };
+		EF7491502C35C6F000FF6AD9 /* GetBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBalanceViewController.swift; sourceTree = "<group>"; };
 		FA11F7A152A40C2C681E5E7D /* Pods-BitcoinDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitcoinDemo.debug.xcconfig"; path = "Target Support Files/Pods-BitcoinDemo/Pods-BitcoinDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,7 +60,6 @@
 				FA11F7A152A40C2C681E5E7D /* Pods-BitcoinDemo.debug.xcconfig */,
 				0430FBC98F7900EE610CD9BB /* Pods-BitcoinDemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,6 +95,12 @@
 				EF7491322C35C36D00FF6AD9 /* AppDelegate.swift */,
 				EF7491342C35C36D00FF6AD9 /* SceneDelegate.swift */,
 				EF7491362C35C36D00FF6AD9 /* ViewController.swift */,
+				EF7491482C35C4E400FF6AD9 /* CreateAccountViewController.swift */,
+				EF7491462C35C47400FF6AD9 /* ImportAccountFromMnemonicViewController.swift */,
+				EF74914C2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift */,
+				EF7491502C35C6F000FF6AD9 /* GetBalanceViewController.swift */,
+				EF74914A2C35C4FF00FF6AD9 /* TransferViewController.swift */,
+				EF74914E2C35C5A600FF6AD9 /* FeeEstimateViewController.swift */,
 				EF7491382C35C36D00FF6AD9 /* Main.storyboard */,
 				EF74913B2C35C36F00FF6AD9 /* Assets.xcassets */,
 				EF74913D2C35C36F00FF6AD9 /* LaunchScreen.storyboard */,
@@ -189,7 +206,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF7491492C35C4E400FF6AD9 /* CreateAccountViewController.swift in Sources */,
+				EF74914D2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift in Sources */,
+				EF7491512C35C6F000FF6AD9 /* GetBalanceViewController.swift in Sources */,
+				EF74914B2C35C4FF00FF6AD9 /* TransferViewController.swift in Sources */,
 				EF7491372C35C36D00FF6AD9 /* ViewController.swift in Sources */,
+				EF7491472C35C47400FF6AD9 /* ImportAccountFromMnemonicViewController.swift in Sources */,
+				EF74914F2C35C5A600FF6AD9 /* FeeEstimateViewController.swift in Sources */,
 				EF7491332C35C36D00FF6AD9 /* AppDelegate.swift in Sources */,
 				EF7491352C35C36D00FF6AD9 /* SceneDelegate.swift in Sources */,
 			);
