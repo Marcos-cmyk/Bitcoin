@@ -20,7 +20,7 @@
 		EF74914D2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF74914C2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift */; };
 		EF74914F2C35C5A600FF6AD9 /* FeeEstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF74914E2C35C5A600FF6AD9 /* FeeEstimateViewController.swift */; };
 		EF7491512C35C6F000FF6AD9 /* GetBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7491502C35C6F000FF6AD9 /* GetBalanceViewController.swift */; };
-		EFEDABEF2C39898800881B60 /* Bitcoin_alpha in Frameworks */ = {isa = PBXBuildFile; productRef = EFEDABEE2C39898800881B60 /* Bitcoin_alpha */; };
+		EFFF45A92C398D8B00069353 /* Bitcoin_alpha in Frameworks */ = {isa = PBXBuildFile; productRef = EFFF45A82C398D8B00069353 /* Bitcoin_alpha */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFEDABEF2C39898800881B60 /* Bitcoin_alpha in Frameworks */,
+				EFFF45A92C398D8B00069353 /* Bitcoin_alpha in Frameworks */,
 				7DF1A4E8D4273A829B847620 /* libPods-BitcoinDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,7 +129,7 @@
 			);
 			name = BitcoinDemo;
 			packageProductDependencies = (
-				EFEDABEE2C39898800881B60 /* Bitcoin_alpha */,
+				EFFF45A82C398D8B00069353 /* Bitcoin_alpha */,
 			);
 			productName = BitcoinDemo;
 			productReference = EF74912F2C35C36D00FF6AD9 /* BitcoinDemo.app */;
@@ -160,7 +160,7 @@
 			);
 			mainGroup = EF7491262C35C36D00FF6AD9;
 			packageReferences = (
-				EFEDABED2C39898800881B60 /* XCRemoteSwiftPackageReference "Bitcoin" */,
+				EFFF45A72C398D8B00069353 /* XCRemoteSwiftPackageReference "Bitcoin" */,
 			);
 			productRefGroup = EF7491302C35C36D00FF6AD9 /* Products */;
 			projectDirPath = "";
@@ -442,20 +442,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EFEDABED2C39898800881B60 /* XCRemoteSwiftPackageReference "Bitcoin" */ = {
+		EFFF45A72C398D8B00069353 /* XCRemoteSwiftPackageReference "Bitcoin" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Marcos-cmyk/Bitcoin.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
+				minimumVersion = 1.0.6;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EFEDABEE2C39898800881B60 /* Bitcoin_alpha */ = {
+		EFFF45A82C398D8B00069353 /* Bitcoin_alpha */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EFEDABED2C39898800881B60 /* XCRemoteSwiftPackageReference "Bitcoin" */;
+			package = EFFF45A72C398D8B00069353 /* XCRemoteSwiftPackageReference "Bitcoin" */;
 			productName = Bitcoin_alpha;
 		};
 /* End XCSwiftPackageProductDependency section */
