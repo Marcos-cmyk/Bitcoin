@@ -60,7 +60,7 @@ public class Bitcoin_V1: NSObject {
             self.isSuccess = true
             self.onCompleted?(true)
         }
-        let htmlSource = self.loadBundleResource(bundleName: "Bitcoin", sourceName: "/index.html")
+        let htmlSource = self.loadBundleResource(bundleName: "Bitcoin_alpha", sourceName: "/index.html")
         let url = URL(fileURLWithPath: htmlSource)
         self.webView.loadFileURL(url, allowingReadAccessTo: url)
     }

@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "bitcoin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Marcos-cmyk/Bitcoin.git",
+      "state" : {
+        "revision" : "a389eb492fe0c1807854fa9023f893abc4ec108d",
+        "version" : "1.0.3"
+      }
+    }
+  ],
+  "version" : 2
+}
