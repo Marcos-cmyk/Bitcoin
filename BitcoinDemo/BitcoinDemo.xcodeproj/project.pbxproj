@@ -20,7 +20,6 @@
 		EF74914D2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF74914C2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift */; };
 		EF74914F2C35C5A600FF6AD9 /* FeeEstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF74914E2C35C5A600FF6AD9 /* FeeEstimateViewController.swift */; };
 		EF7491512C35C6F000FF6AD9 /* GetBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7491502C35C6F000FF6AD9 /* GetBalanceViewController.swift */; };
-		EF9AF5702C39806300F99B8E /* Bitcoin in Frameworks */ = {isa = PBXBuildFile; productRef = EF9AF56F2C39806300F99B8E /* Bitcoin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +48,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DF1A4E8D4273A829B847620 /* libPods-BitcoinDemo.a in Frameworks */,
-				EF9AF5702C39806300F99B8E /* Bitcoin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,16 +120,12 @@
 				EF74912B2C35C36D00FF6AD9 /* Sources */,
 				EF74912C2C35C36D00FF6AD9 /* Frameworks */,
 				EF74912D2C35C36D00FF6AD9 /* Resources */,
-				6691653BFC2EC092903860F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = BitcoinDemo;
-			packageProductDependencies = (
-				EF9AF56F2C39806300F99B8E /* Bitcoin */,
-			);
 			productName = BitcoinDemo;
 			productReference = EF74912F2C35C36D00FF6AD9 /* BitcoinDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -161,7 +155,7 @@
 			);
 			mainGroup = EF7491262C35C36D00FF6AD9;
 			packageReferences = (
-				EF9AF56E2C39806300F99B8E /* XCRemoteSwiftPackageReference "Bitcoin" */,
+				EFEDABEC2C39851400881B60 /* XCRemoteSwiftPackageReference "Bitcoin" */,
 			);
 			productRefGroup = EF7491302C35C36D00FF6AD9 /* Products */;
 			projectDirPath = "";
@@ -206,23 +200,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6691653BFC2EC092903860F8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BitcoinDemo/Pods-BitcoinDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BitcoinDemo/Pods-BitcoinDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BitcoinDemo/Pods-BitcoinDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -460,23 +437,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EF9AF56E2C39806300F99B8E /* XCRemoteSwiftPackageReference "Bitcoin" */ = {
+		EFEDABEC2C39851400881B60 /* XCRemoteSwiftPackageReference "Bitcoin" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Marcos-cmyk/Bitcoin.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 1.0.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		EF9AF56F2C39806300F99B8E /* Bitcoin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EF9AF56E2C39806300F99B8E /* XCRemoteSwiftPackageReference "Bitcoin" */;
-			productName = Bitcoin;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF7491272C35C36D00FF6AD9 /* Project object */;
 }
