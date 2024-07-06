@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Bitcoin_alpha
 
 class GetBalanceViewController: UIViewController {
     lazy var bitcoin: Bitcoin_V1 = {

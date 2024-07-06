@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Bitcoin_alpha
 
 class FeeEstimateViewController: UIViewController {
     lazy var bitcoin: Bitcoin_V1 = {

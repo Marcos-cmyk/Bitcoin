@@ -6,7 +6,7 @@
 //
 import SnapKit
 import UIKit
-
+import Bitcoin_alpha
 let margin: CGFloat = 20.0
 class CreateAccountViewController: UIViewController {
     lazy var bitcoin: Bitcoin_V1 = {

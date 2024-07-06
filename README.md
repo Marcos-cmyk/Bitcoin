@@ -13,7 +13,7 @@ For more specific usage, please refer to the [demo](https://github.com/Marcos-cm
 Add this to your [podfile](https://guides.cocoapods.org/using/getting-started.html) and run `pod install` to install:
 
 ```ruby
-pod 'BitcoinSwift', '~> 1.0.0'
+pod 'Bitcoin-alpha', '~> 1.0.0'
 ```
 ### Swift Package Manager
 The Swift Package Manager  is a tool for automating the distribution of Swift code and is integrated into the swift compiler.
@@ -25,16 +25,10 @@ dependencies: [
 ]
 ```
 
-### Example usage in CocoaPods
+### Example usage 
 
 ```swift
-import BitcoinSwift   
-```
-
-### Example usage in Swift Package Manager
-
-```swift
-import BitcoinSwift   
+import Bitcoin_alpha   
 ```
 
 ##### Setup Bitcoin
