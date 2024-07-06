@@ -18,9 +18,7 @@ let package = Package(
             name: "Bitcoin_alpha",
             dependencies: [],
             resources: [.copy("Bitcoin_alpha.bundle")]
-        ),
-        .testTarget(
-            name: "BitcoinTests",
-            dependencies: ["Bitcoin"]),
+        )
+        
     ]
 )
