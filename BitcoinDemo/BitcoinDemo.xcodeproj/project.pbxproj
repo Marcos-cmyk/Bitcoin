@@ -20,6 +20,11 @@
 		EF74914D2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF74914C2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift */; };
 		EF74914F2C35C5A600FF6AD9 /* FeeEstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF74914E2C35C5A600FF6AD9 /* FeeEstimateViewController.swift */; };
 		EF7491512C35C6F000FF6AD9 /* GetBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7491502C35C6F000FF6AD9 /* GetBalanceViewController.swift */; };
+		EF7491582C39380E00FF6AD9 /* Bitcoin.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EF7491532C39380E00FF6AD9 /* Bitcoin.bundle */; };
+		EF7491592C39380E00FF6AD9 /* Bitcoin_V1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7491542C39380E00FF6AD9 /* Bitcoin_V1.swift */; };
+		EF74915A2C39380E00FF6AD9 /* BTCWebViewJavascriptBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7491552C39380E00FF6AD9 /* BTCWebViewJavascriptBridge.swift */; };
+		EF74915B2C39380E00FF6AD9 /* BTCJavascriptCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7491562C39380E00FF6AD9 /* BTCJavascriptCode.swift */; };
+		EF74915C2C39380E00FF6AD9 /* BTCWebViewJavascriptBridgeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7491572C39380E00FF6AD9 /* BTCWebViewJavascriptBridgeBase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +44,11 @@
 		EF74914C2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAccountFromPrivateKeyViewController.swift; sourceTree = "<group>"; };
 		EF74914E2C35C5A600FF6AD9 /* FeeEstimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeEstimateViewController.swift; sourceTree = "<group>"; };
 		EF7491502C35C6F000FF6AD9 /* GetBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBalanceViewController.swift; sourceTree = "<group>"; };
+		EF7491532C39380E00FF6AD9 /* Bitcoin.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Bitcoin.bundle; sourceTree = "<group>"; };
+		EF7491542C39380E00FF6AD9 /* Bitcoin_V1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bitcoin_V1.swift; sourceTree = "<group>"; };
+		EF7491552C39380E00FF6AD9 /* BTCWebViewJavascriptBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCWebViewJavascriptBridge.swift; sourceTree = "<group>"; };
+		EF7491562C39380E00FF6AD9 /* BTCJavascriptCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCJavascriptCode.swift; sourceTree = "<group>"; };
+		EF7491572C39380E00FF6AD9 /* BTCWebViewJavascriptBridgeBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTCWebViewJavascriptBridgeBase.swift; sourceTree = "<group>"; };
 		FA11F7A152A40C2C681E5E7D /* Pods-BitcoinDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BitcoinDemo.debug.xcconfig"; path = "Target Support Files/Pods-BitcoinDemo/Pods-BitcoinDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +102,7 @@
 		EF7491312C35C36D00FF6AD9 /* BitcoinDemo */ = {
 			isa = PBXGroup;
 			children = (
+				EF7491522C39380E00FF6AD9 /* Bitcoin */,
 				EF7491322C35C36D00FF6AD9 /* AppDelegate.swift */,
 				EF7491342C35C36D00FF6AD9 /* SceneDelegate.swift */,
 				EF7491362C35C36D00FF6AD9 /* ViewController.swift */,
@@ -109,6 +120,18 @@
 			path = BitcoinDemo;
 			sourceTree = "<group>";
 		};
+		EF7491522C39380E00FF6AD9 /* Bitcoin */ = {
+			isa = PBXGroup;
+			children = (
+				EF7491532C39380E00FF6AD9 /* Bitcoin.bundle */,
+				EF7491542C39380E00FF6AD9 /* Bitcoin_V1.swift */,
+				EF7491552C39380E00FF6AD9 /* BTCWebViewJavascriptBridge.swift */,
+				EF7491562C39380E00FF6AD9 /* BTCJavascriptCode.swift */,
+				EF7491572C39380E00FF6AD9 /* BTCWebViewJavascriptBridgeBase.swift */,
+			);
+			path = Bitcoin;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,6 +143,7 @@
 				EF74912B2C35C36D00FF6AD9 /* Sources */,
 				EF74912C2C35C36D00FF6AD9 /* Frameworks */,
 				EF74912D2C35C36D00FF6AD9 /* Resources */,
+				6691653BFC2EC092903860F8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,6 +195,7 @@
 				EF74913F2C35C36F00FF6AD9 /* LaunchScreen.storyboard in Resources */,
 				EF74913C2C35C36F00FF6AD9 /* Assets.xcassets in Resources */,
 				EF74913A2C35C36D00FF6AD9 /* Main.storyboard in Resources */,
+				EF7491582C39380E00FF6AD9 /* Bitcoin.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +224,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6691653BFC2EC092903860F8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BitcoinDemo/Pods-BitcoinDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BitcoinDemo/Pods-BitcoinDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BitcoinDemo/Pods-BitcoinDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -206,6 +248,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF74915A2C39380E00FF6AD9 /* BTCWebViewJavascriptBridge.swift in Sources */,
+				EF74915C2C39380E00FF6AD9 /* BTCWebViewJavascriptBridgeBase.swift in Sources */,
 				EF7491492C35C4E400FF6AD9 /* CreateAccountViewController.swift in Sources */,
 				EF74914D2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift in Sources */,
 				EF7491512C35C6F000FF6AD9 /* GetBalanceViewController.swift in Sources */,
@@ -213,6 +257,8 @@
 				EF7491372C35C36D00FF6AD9 /* ViewController.swift in Sources */,
 				EF7491472C35C47400FF6AD9 /* ImportAccountFromMnemonicViewController.swift in Sources */,
 				EF74914F2C35C5A600FF6AD9 /* FeeEstimateViewController.swift in Sources */,
+				EF7491592C39380E00FF6AD9 /* Bitcoin_V1.swift in Sources */,
+				EF74915B2C39380E00FF6AD9 /* BTCJavascriptCode.swift in Sources */,
 				EF7491332C35C36D00FF6AD9 /* AppDelegate.swift in Sources */,
 				EF7491352C35C36D00FF6AD9 /* SceneDelegate.swift in Sources */,
 			);

@@ -5,12 +5,14 @@
 //  Created by Marcos-cmyk on 2024/7/4.
 //
 
+import SafariServices
 import UIKit
+
 enum OperationType: String, CaseIterable {
     case createAccount
     case importAccountFromMnemonic
     case importAccountFromPrivateKey
-    case transfer
+    case btcTransfer
     case estimateFee
     case getBTCBalance
     
@@ -38,7 +40,7 @@ class ViewController: UIViewController {
     }
 
     func setupNav() {
-        title = "首頁"
+        title = "Home"
     }
 
     func setupContent() {
@@ -50,8 +52,6 @@ class ViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-
-
 }
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -63,7 +63,7 @@ extension ViewController: UITableViewDelegate {
             navigationController?.pushViewController(ImportAccountFromMnemonicViewController(), animated: true)
         case .importAccountFromPrivateKey:
             navigationController?.pushViewController(ImportAccountFromPrivateKeyViewController(), animated: true)
-        case .transfer:
+        case .btcTransfer:
             let vc = TransferViewController()
             navigationController?.pushViewController(vc, animated: true)
         case .getBTCBalance:
@@ -94,4 +94,15 @@ extension ViewController: UITableViewDataSource {
     }
 
    
+}
+
+extension UIViewController {
+    
+    func showSafariVC(for url: String) {
+        guard let url = URL(string: url) else {
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        present(safariVC, animated: true, completion: nil)
+    }
 }
