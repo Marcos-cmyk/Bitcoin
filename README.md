@@ -66,11 +66,6 @@ bitcoin.createAccount() { [weak self] state, address, privateKey, mnemonic,error
     }
 }
 ```
-##### Import Account From Mnemonic 
-```swift
-
-```
-
 ##### Import Account From Mnemonic
 ```swift
 guard let mnemonic = mnemonicTextView.text else{return}
