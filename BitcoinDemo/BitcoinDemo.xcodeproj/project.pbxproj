@@ -20,6 +20,7 @@
 		EF74914D2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF74914C2C35C57900FF6AD9 /* ImportAccountFromPrivateKeyViewController.swift */; };
 		EF74914F2C35C5A600FF6AD9 /* FeeEstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF74914E2C35C5A600FF6AD9 /* FeeEstimateViewController.swift */; };
 		EF7491512C35C6F000FF6AD9 /* GetBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF7491502C35C6F000FF6AD9 /* GetBalanceViewController.swift */; };
+		EF9AF5702C39806300F99B8E /* Bitcoin in Frameworks */ = {isa = PBXBuildFile; productRef = EF9AF56F2C39806300F99B8E /* Bitcoin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DF1A4E8D4273A829B847620 /* libPods-BitcoinDemo.a in Frameworks */,
+				EF9AF5702C39806300F99B8E /* Bitcoin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +129,9 @@
 			dependencies = (
 			);
 			name = BitcoinDemo;
+			packageProductDependencies = (
+				EF9AF56F2C39806300F99B8E /* Bitcoin */,
+			);
 			productName = BitcoinDemo;
 			productReference = EF74912F2C35C36D00FF6AD9 /* BitcoinDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -155,6 +160,9 @@
 				Base,
 			);
 			mainGroup = EF7491262C35C36D00FF6AD9;
+			packageReferences = (
+				EF9AF56E2C39806300F99B8E /* XCRemoteSwiftPackageReference "Bitcoin" */,
+			);
 			productRefGroup = EF7491302C35C36D00FF6AD9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -450,6 +458,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EF9AF56E2C39806300F99B8E /* XCRemoteSwiftPackageReference "Bitcoin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Marcos-cmyk/Bitcoin.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EF9AF56F2C39806300F99B8E /* Bitcoin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EF9AF56E2C39806300F99B8E /* XCRemoteSwiftPackageReference "Bitcoin" */;
+			productName = Bitcoin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EF7491272C35C36D00FF6AD9 /* Project object */;
 }
