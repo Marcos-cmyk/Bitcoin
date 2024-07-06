@@ -1,5 +1,5 @@
-# BitcoinSwift
-**BitcoinSwift** is an iOS toolbelt for interaction with the BTC network.
+# Bitcoin_alpha
+**Bitcoin_alpha** is an iOS toolbelt for interaction with the BTC network.
 
 ![language](https://img.shields.io/badge/Language-Swift-green)
 [![CocoaPods](https://img.shields.io/badge/support-CocoaPods-green)](https://cocoapods.org/pods/BitcoinSwift)
