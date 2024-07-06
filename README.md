@@ -156,4 +156,4 @@ For more specific usage, please refer to the [demo](https://github.com/Marcos-cm
 
 ## License
 
-TronWeb is released under the MIT license. [See LICENSE](https://github.com/Marcos-cmyk/Bitcoin/blob/master/LICENSE) for details.
+Bitcoin_alpha is released under the MIT license. [See LICENSE](https://github.com/Marcos-cmyk/Bitcoin/blob/master/LICENSE) for details.
