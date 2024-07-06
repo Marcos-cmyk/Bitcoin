@@ -155,7 +155,6 @@
 			);
 			mainGroup = EF7491262C35C36D00FF6AD9;
 			packageReferences = (
-				EFEDABEC2C39851400881B60 /* XCRemoteSwiftPackageReference "Bitcoin" */,
 			);
 			productRefGroup = EF7491302C35C36D00FF6AD9 /* Products */;
 			projectDirPath = "";
@@ -435,17 +434,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		EFEDABEC2C39851400881B60 /* XCRemoteSwiftPackageReference "Bitcoin" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Marcos-cmyk/Bitcoin.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = EF7491272C35C36D00FF6AD9 /* Project object */;
 }

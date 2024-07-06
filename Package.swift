@@ -4,20 +4,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "Bitcoin_alpha",
+    name: "Bitcoin",
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Bitcoin_alpha",
-            targets: ["Bitcoin_alpha"]),
+            name: "Bitcoin",
+            targets: ["Bitcoin"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Bitcoin_alpha",
+            name: "Bitcoin",
             dependencies: [],
-            resources: [.copy("Bitcoin_alpha.bundle")]
+            resources: [.copy("Bitcoin.bundle")]
         )
         
     ]
