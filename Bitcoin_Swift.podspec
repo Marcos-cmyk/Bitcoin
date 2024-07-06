@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "BitcoinSwift"
+  s.name         = "Bitcoin_Swift"
   s.version      = "1.0.0"
   s.summary      = "Generate account/ Import account/ BTC Transfer/ Get BTC Balance/ Estimate Fee with Swift."
 
