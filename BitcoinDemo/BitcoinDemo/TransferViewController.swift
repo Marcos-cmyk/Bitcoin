@@ -37,7 +37,7 @@ class TransferViewController: UIViewController {
         let reviceAddressField = UITextField()
         reviceAddressField.borderStyle = .line
         reviceAddressField.placeholder = "revice address input"
-        reviceAddressField.text = "bc1q79t70t8fzfpdwkhk8arckruvdfmurtncjaykz7"
+        reviceAddressField.text = "bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h"
         return reviceAddressField
     }()
     
@@ -150,7 +150,7 @@ class TransferViewController: UIViewController {
               let amount1 = amountTextField.text else { return }
         var outputs = [[String: String]]()
         let output1: [String: String] = ["address":reviceAddress1,"amount":amount1]
-        let output2: [String: String] = ["address":"bc1q0zeshwwrdd8zxv8jgz97vc66qn3nyuewaylzyg","amount":"0.00001"]
+        let output2: [String: String] = ["address":"bc1qddvgs6cj9xej585vezahwjx4dyz8twhemqnage","amount":"0.00001"]
         outputs.append(output1)
         outputs.append(output2)
         let fee = 3000.0

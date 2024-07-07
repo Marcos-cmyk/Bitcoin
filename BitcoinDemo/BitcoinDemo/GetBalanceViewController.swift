@@ -36,7 +36,7 @@ class GetBalanceViewController: UIViewController {
         let addressField = UITextField()
         addressField.borderStyle = .line
         addressField.placeholder = "address input"
-        addressField.text = "bc1qfjz4zx04ld96ggy324cljupxr32q0clpvdp4xr"
+        addressField.text = "bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h"
         return addressField
     }()
 
