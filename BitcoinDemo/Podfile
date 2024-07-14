@@ -4,4 +4,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'BitcoinDemo' do
   pod 'SnapKit', '~> 5.6.0'
+  pod 'Bitcoin-alpha', '~> 1.0.7'
+
 end
