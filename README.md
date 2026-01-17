@@ -4,17 +4,16 @@
 ![language](https://img.shields.io/badge/Language-Swift-green)
 [![CocoaPods](https://img.shields.io/badge/support-SwiftPackageManager-green)](https://www.swift.org/getting-started/#using-the-package-manager)
 
-![](Resource/Bitcoin Feature.gif)
+![](Resource/Demo.png)
 
 For more specific usage, please refer to the [demo](https://github.com/Marcos-cmyk/Bitcoin/tree/main/BitcoinDemo)
-
 
 ### Swift Package Manager
 The Swift Package Manager  is a tool for automating the distribution of Swift code and is integrated into the swift compiler.
 
 ```ruby
 dependencies: [
-    .package(url: "xxxxx", .upToNextMajor(from: ""))
+    .package(url: "https://github.com/Marcos-cmyk/Bitcoin.git", .upToNextMajor(from: "1.0.8"))
 ]
 ```
 
