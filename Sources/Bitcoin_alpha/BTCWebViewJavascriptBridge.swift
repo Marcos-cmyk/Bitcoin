@@ -18,17 +18,17 @@
 
 import Foundation
 import WebKit
-enum PipeType: String {
+enum BTCPipeType: String {
     case normal
     case console
 }
 
-public typealias ConsolePipeClosure = (Any?) -> Void
+public typealias BTCConsolePipeClosure = (Any?) -> Void
 
 public class BTCWebViewJavascriptBridge: NSObject {
     private weak var webView: WKWebView?
     private var base: BTCWebViewJavascriptBridgeBase!
-    public var consolePipeClosure: ConsolePipeClosure?
+    public var consolePipeClosure: BTCConsolePipeClosure?
     public init(webView: WKWebView, _ otherJSCode: String = "",isHookConsole: Bool = true, injectionTime: WKUserScriptInjectionTime = .atDocumentStart) {
         super.init()
         self.webView = webView
@@ -64,7 +64,7 @@ public class BTCWebViewJavascriptBridge: NSObject {
     private func injectJavascriptFile(_ otherJSCode: String = "", isHookConsole: Bool ,injectionTime: WKUserScriptInjectionTime = .atDocumentStart) {
         let bridgeJS = BTCJavascriptCode.bridge()
         let hookConsoleJS = isHookConsole ? BTCJavascriptCode.hookConsole() : ""
-        let finalJS = "\(bridgeJS)" + "\(hookConsoleJS)"
+        let finalJS =  "\(bridgeJS)" + "\(hookConsoleJS)"
         let userScript = WKUserScript(source: finalJS, injectionTime: injectionTime, forMainFrameOnly: true)
         webView?.configuration.userContentController.addUserScript(userScript)
         if !otherJSCode.isEmpty {
@@ -74,13 +74,13 @@ public class BTCWebViewJavascriptBridge: NSObject {
     }
 
     private func addScriptMessageHandlers() {
-        webView?.configuration.userContentController.add(BTCLeakAvoider(delegate: self), name: PipeType.normal.rawValue)
-        webView?.configuration.userContentController.add(BTCLeakAvoider(delegate: self), name: PipeType.console.rawValue)
+        webView?.configuration.userContentController.add(BTCLeakAvoider(delegate: self), name: BTCPipeType.normal.rawValue)
+        webView?.configuration.userContentController.add(BTCLeakAvoider(delegate: self), name: BTCPipeType.console.rawValue)
     }
 
     private func removeScriptMessageHandlers() {
-        webView?.configuration.userContentController.removeScriptMessageHandler(forName: PipeType.normal.rawValue)
-        webView?.configuration.userContentController.removeScriptMessageHandler(forName: PipeType.console.rawValue)
+        webView?.configuration.userContentController.removeScriptMessageHandler(forName: BTCPipeType.normal.rawValue)
+        webView?.configuration.userContentController.removeScriptMessageHandler(forName: BTCPipeType.console.rawValue)
     }
 }
 
@@ -92,9 +92,9 @@ extension BTCWebViewJavascriptBridge: BTCWebViewJavascriptBridgeBaseDelegate {
 
 extension BTCWebViewJavascriptBridge: WKScriptMessageHandler {
     public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == PipeType.console.rawValue {
+        if message.name == BTCPipeType.console.rawValue {
             consolePipeClosure?(message.body)
-        } else if message.name == PipeType.normal.rawValue {
+        } else if message.name == BTCPipeType.normal.rawValue {
             let body = message.body as? String
             guard let resultStr = body else { return }
             base.flush(messageQueueString: resultStr)
