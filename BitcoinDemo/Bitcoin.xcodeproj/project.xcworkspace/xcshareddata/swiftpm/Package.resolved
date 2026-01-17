@@ -1,6 +1,15 @@
 {
-  "originHash" : "dd27728c8848101841bd8d45243ef43144e233aa3767c82656934b73447347b8",
+  "originHash" : "1b893e2b6d71b933f5216228e0f1587c2054fa0b1c0459c42cc8eb30cd6ade67",
   "pins" : [
+    {
+      "identity" : "bitcoin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Marcos-cmyk/Bitcoin.git",
+      "state" : {
+        "revision" : "641af392f7df890cfe679a0a81b437cc0b95964c",
+        "version" : "1.0.8"
+      }
+    },
     {
       "identity" : "snapkit",
       "kind" : "remoteSourceControl",

@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 import SafariServices
-
+import Bitcoin_alpha
 class OneClickTransferViewController: UIViewController {
     lazy var bitcoin: Bitcoin_V1 = {
         let btc = Bitcoin_V1()

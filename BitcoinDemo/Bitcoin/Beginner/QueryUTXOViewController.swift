@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-
+import Bitcoin_alpha
 // MARK: - UTXO Model
 struct UTXOInfo {
     let txHash: String

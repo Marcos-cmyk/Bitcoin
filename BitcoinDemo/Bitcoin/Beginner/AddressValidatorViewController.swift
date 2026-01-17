@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-
+import Bitcoin_alpha
 
 class AddressValidatorViewController: UIViewController {
     lazy var bitcoin: Bitcoin_V1 = {

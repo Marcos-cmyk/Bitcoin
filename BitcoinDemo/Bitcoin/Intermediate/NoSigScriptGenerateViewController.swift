@@ -7,7 +7,7 @@
 
 import UIKit
 import SnapKit
-
+import Bitcoin_alpha
 class NoSigScriptGenerateViewController: UIViewController {
     lazy var bitcoin: Bitcoin_V1 = {
         let btc = Bitcoin_V1()
