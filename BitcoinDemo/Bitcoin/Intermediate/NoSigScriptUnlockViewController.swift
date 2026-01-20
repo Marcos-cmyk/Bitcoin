@@ -184,6 +184,57 @@ class NoSigScriptUnlockViewController: UIViewController {
         return textField
     }()
     
+    // MARK: - Change Address Section
+    private lazy var changeAddressSectionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Change Address (Optional)"
+        label.font = .systemFont(ofSize: 18, weight: .bold)
+        label.textColor = .label
+        return label
+    }()
+    
+    private lazy var changeAddressTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Enter change address (leave empty to use recipient address)"
+        textField.borderStyle = .roundedRect
+        textField.backgroundColor = .systemBackground
+        textField.font = UIFont.monospacedSystemFont(ofSize: 14, weight: .regular)
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
+        textField.clearButtonMode = .whileEditing
+        textField.addTarget(self, action: #selector(changeAddressTextChanged), for: .editingChanged)
+        return textField
+    }()
+    
+    private lazy var changeAddressHintLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Tip: Change will be sent to this address if change amount ≥ 546 sats. Use a regular address you control."
+        label.font = .systemFont(ofSize: 12, weight: .regular)
+        label.textColor = .secondaryLabel
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    // MARK: - Warning Container for Change Address
+    private lazy var changeAddressWarningContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.systemRed.withAlphaComponent(0.1)
+        view.layer.cornerRadius = 8
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.systemRed.cgColor
+        view.isHidden = true
+        return view
+    }()
+    
+    private lazy var changeAddressWarningLabel: UILabel = {
+        let label = UILabel()
+        label.text = "⚠️ Warning: Change Address Same as Source Address\n\nIf you use the source address as change address:\n• Change will be locked again with the same conditions\n• You'll need to provide preimage and meet time lock again\n• You'll lose immediate control of the change\n\n💡 Recommendation: Use a regular address you control (P2PKH, P2WPKH, or P2TR) so you can use the change immediately without unlocking again."
+        label.font = .systemFont(ofSize: 13, weight: .regular)
+        label.textColor = .systemRed
+        label.numberOfLines = 0
+        return label
+    }()
+    
     // MARK: - Amount Section
     private lazy var amountSectionLabel: UILabel = {
         let label = UILabel()
@@ -382,6 +433,13 @@ class NoSigScriptUnlockViewController: UIViewController {
         contentView.addSubview(toAddressSectionLabel)
         contentView.addSubview(toAddressTextField)
         
+        // Change Address
+        contentView.addSubview(changeAddressSectionLabel)
+        contentView.addSubview(changeAddressTextField)
+        contentView.addSubview(changeAddressHintLabel)
+        contentView.addSubview(changeAddressWarningContainer)
+        changeAddressWarningContainer.addSubview(changeAddressWarningLabel)
+        
         // Amount
         contentView.addSubview(amountSectionLabel)
         contentView.addSubview(amountStackView)
@@ -502,9 +560,35 @@ class NoSigScriptUnlockViewController: UIViewController {
             make.height.equalTo(44)
         }
         
+        // Change Address
+        changeAddressSectionLabel.snp.makeConstraints { make in
+            make.top.equalTo(toAddressTextField.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        changeAddressTextField.snp.makeConstraints { make in
+            make.top.equalTo(changeAddressSectionLabel.snp.bottom).offset(15)
+            make.leading.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(44)
+        }
+        
+        changeAddressHintLabel.snp.makeConstraints { make in
+            make.top.equalTo(changeAddressTextField.snp.bottom).offset(8)
+            make.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        changeAddressWarningContainer.snp.makeConstraints { make in
+            make.top.equalTo(changeAddressHintLabel.snp.bottom).offset(12)
+            make.leading.trailing.equalToSuperview().inset(20)
+        }
+        
+        changeAddressWarningLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(12)
+        }
+        
         // Amount
         amountSectionLabel.snp.makeConstraints { make in
-            make.top.equalTo(toAddressTextField.snp.bottom).offset(30)
+            make.top.equalTo(changeAddressWarningContainer.snp.bottom).offset(30)
             make.leading.trailing.equalToSuperview().inset(20)
         }
         
@@ -648,6 +732,16 @@ class NoSigScriptUnlockViewController: UIViewController {
             return
         }
         
+        // 验证找零地址不能等于源地址（提交时禁止 - 双重保障）
+        let changeAddress = changeAddressTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        if let changeAddress = changeAddress, !changeAddress.isEmpty {
+            if changeAddress.lowercased() == noSigAddress.lowercased() {
+                let errorMessage = "❌ Change address cannot be the same as source address!\n\nReason: If change is sent back to the source address, it will be locked again and require the same unlock conditions (preimage + time lock).\n\nSolution: Please enter a different address that you control (e.g., your regular wallet address: P2PKH, P2WPKH, or P2TR)."
+                showAlert(title: "Invalid Change Address", message: errorMessage)
+                return  // 禁止提交
+            }
+        }
+        
         // Show loading state
         unlockButton.isEnabled = false
         unlockButton.setTitle("Unlocking...", for: .normal)
@@ -659,13 +753,13 @@ class NoSigScriptUnlockViewController: UIViewController {
         
         // Use async/await for concurrent execution
         Task {
-            await performUnlock(noSigAddress: noSigAddress, toAddress: toAddress, amountSats: amountSats, feeSats: feeSats, lockHeight: lockHeight, secretHex: secretHex, redeemScript: redeemScript, isTestnet: isTestnet)
+            await performUnlock(noSigAddress: noSigAddress, toAddress: toAddress, amountSats: amountSats, feeSats: feeSats, lockHeight: lockHeight, secretHex: secretHex, redeemScript: redeemScript, isTestnet: isTestnet, changeAddress: changeAddress)
         }
     }
     
     // MARK: - Async/Await Implementation
     @available(iOS 13.0, *)
-    private func performUnlock(noSigAddress: String, toAddress: String, amountSats: Int64, feeSats: Int64, lockHeight: Int, secretHex: String, redeemScript: String, isTestnet: Bool) async {
+    private func performUnlock(noSigAddress: String, toAddress: String, amountSats: Int64, feeSats: Int64, lockHeight: Int, secretHex: String, redeemScript: String, isTestnet: Bool, changeAddress: String?) async {
         // Ensure Bitcoin is initialized
         if !bitcoin.isSuccess {
             await withCheckedContinuation { continuation in
@@ -684,19 +778,20 @@ class NoSigScriptUnlockViewController: UIViewController {
             lockHeight: lockHeight,
             secretHex: secretHex,
             redeemScript: redeemScript,
-            isTestnet: isTestnet
+            isTestnet: isTestnet,
+            changeAddress: changeAddress
         )
-        
+            
         // Update UI on main thread
         await MainActor.run {
-            self.unlockButton.isEnabled = true
-            self.unlockButton.setTitle("Unlock and Broadcast", for: .normal)
-            
-            if success, let result = result {
-                self.updateResults(with: result)
-                self.showToast(message: "No-sig script unlocked and transferred successfully")
-            } else {
-                self.showAlert(title: "Unlock Failed", message: errorMessage ?? "Unknown error")
+                self.unlockButton.isEnabled = true
+                self.unlockButton.setTitle("Unlock and Broadcast", for: .normal)
+                
+                if success, let result = result {
+                    self.updateResults(with: result)
+                    self.showToast(message: "No-sig script unlocked and transferred successfully")
+                } else {
+                    self.showAlert(title: "Unlock Failed", message: errorMessage ?? "Unknown error")
             }
         }
     }
@@ -828,14 +923,14 @@ class NoSigScriptUnlockViewController: UIViewController {
     private func updateResults(with result: HTLCUnlockResult_V1) {
         unlockResult = result
         
-        self.txidValueLabel.text = result.txid
-        self.resultsContainer.isHidden = false
-        
-        // Scroll to result area
+            self.txidValueLabel.text = result.txid
+            self.resultsContainer.isHidden = false
+            
+            // Scroll to result area
         Task { @MainActor in
             try? await Task.sleep(nanoseconds: 300_000_000) // 0.3 seconds
-            let rect = self.resultsContainer.frame
-            self.scrollView.scrollRectToVisible(rect, animated: true)
+                let rect = self.resultsContainer.frame
+                self.scrollView.scrollRectToVisible(rect, animated: true)
         }
     }
     
@@ -852,5 +947,19 @@ class NoSigScriptUnlockViewController: UIViewController {
             alert.dismiss(animated: true)
         }
     }
+    
+    // MARK: - Change Address Validation
+    @objc private func changeAddressTextChanged() {
+        let changeAddress = changeAddressTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let noSigAddress = noSigAddressTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        
+        
+        if !changeAddress.isEmpty && changeAddress.lowercased() == noSigAddress.lowercased() {
+            changeAddressWarningContainer.isHidden = false
+        } else {
+            changeAddressWarningContainer.isHidden = true
+        }
+    }
 }
+
 

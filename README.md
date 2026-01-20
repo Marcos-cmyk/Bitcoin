@@ -13,7 +13,7 @@ The Swift Package Manager  is a tool for automating the distribution of Swift co
 
 ```ruby
 dependencies: [
-    .package(url: "https://github.com/Marcos-cmyk/Bitcoin.git", .upToNextMajor(from: "1.0.8"))
+    .package(url: "https://github.com/Marcos-cmyk/Bitcoin.git", .upToNextMajor(from: "1.0.9"))
 ]
 ```
 

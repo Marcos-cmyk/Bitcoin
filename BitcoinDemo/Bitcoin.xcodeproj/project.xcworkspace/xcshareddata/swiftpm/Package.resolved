@@ -1,13 +1,13 @@
 {
-  "originHash" : "1b893e2b6d71b933f5216228e0f1587c2054fa0b1c0459c42cc8eb30cd6ade67",
+  "originHash" : "dd83d5c3ff483012da253cd87c19bfe8d8821ef55e3d27e6a52d3a4bd4d203ea",
   "pins" : [
     {
       "identity" : "bitcoin",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Marcos-cmyk/Bitcoin.git",
       "state" : {
-        "revision" : "641af392f7df890cfe679a0a81b437cc0b95964c",
-        "version" : "1.0.8"
+        "revision" : "031d29ed73dbba4b332891e995fa7104dd1f59d0",
+        "version" : "1.0.9"
       }
     },
     {
