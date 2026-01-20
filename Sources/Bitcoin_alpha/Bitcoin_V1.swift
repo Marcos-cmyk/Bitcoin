@@ -187,10 +187,12 @@ public class Bitcoin_V1: NSObject {
                 print(logMessage ?? "")
             }
         }
+        
         if let url = ResourceLoader_V1.url(name: "index", ext: "html", subdirectory: "Bitcoin_alpha.bundle") {
             self.webView.loadFileURL(url, allowingReadAccessTo: url)
         }
     }
+
 
     // MARK: createAccount
     /// Generate wallet account
@@ -1036,13 +1038,14 @@ public class Bitcoin_V1: NSObject {
     ///   - secretHex: Secret preimage (HEX format)
     ///   - redeemScript: Redeem script (HEX format)
     ///   - isTestnet: Whether to use testnet, default true
+    ///   - changeAddress: Optional change address. If not provided, change will be sent to toAddress (not recommended)
     ///   - onCompleted: Completion callback with parameters (success, result, errorMessage)
     ///                   success: Whether unlock request succeeded
     ///                   result: Unlock result (non-nil on success, contains txid and signedHex)
     ///                   errorMessage: Error message (nil on success, non-nil on failure)
     /// - Note: No-signature script unlock does not require private key or signature, only the preimage
-    public func unlockNoSigScriptAddress(noSigAddress: String, toAddress: String, amountSats: Int64, feeSats: Int64, lockHeight: Int, secretHex: String, redeemScript: String, isTestnet: Bool = true, onCompleted: ((Bool, HTLCUnlockResult_V1?, String?) -> Void)? = nil) {
-        let params: [String: Any] = [
+    public func unlockNoSigScriptAddress(noSigAddress: String, toAddress: String, amountSats: Int64, feeSats: Int64, lockHeight: Int, secretHex: String, redeemScript: String, isTestnet: Bool = true, changeAddress: String? = nil, onCompleted: ((Bool, HTLCUnlockResult_V1?, String?) -> Void)? = nil) {
+        var params: [String: Any] = [
             "noSigAddress": noSigAddress,
             "toAddress": toAddress,
             "amountSats": amountSats,
@@ -1052,6 +1055,11 @@ public class Bitcoin_V1: NSObject {
             "redeemScript": redeemScript,
             "isTestnet": isTestnet
         ]
+        
+        
+        if let changeAddress = changeAddress {
+            params["changeAddress"] = changeAddress
+        }
         
         self.bridge.call(handlerName: "NoSigScriptUnlock", data: params) { response in
             if self.showLog {
@@ -1103,11 +1111,12 @@ public class Bitcoin_V1: NSObject {
     ///   - secretHex: Secret preimage (Hex)
     ///   - redeemScript: Redeem script (Hex)
     ///   - isTestnet: Whether to use testnet (default: true)
+    ///   - changeAddress: Optional change address. If not provided, change will be sent to toAddress (not recommended)
     /// - Returns: Tuple containing (success: Bool, result: HTLCUnlockResult_V1?, error: String?)
     @available(iOS 13.0, *)
-    public func unlockNoSigScriptAddress(noSigAddress: String, toAddress: String, amountSats: Int64, feeSats: Int64, lockHeight: Int, secretHex: String, redeemScript: String, isTestnet: Bool = true) async -> (Bool, HTLCUnlockResult_V1?, String?) {
+    public func unlockNoSigScriptAddress(noSigAddress: String, toAddress: String, amountSats: Int64, feeSats: Int64, lockHeight: Int, secretHex: String, redeemScript: String, isTestnet: Bool = true, changeAddress: String? = nil) async -> (Bool, HTLCUnlockResult_V1?, String?) {
         return await withCheckedContinuation { continuation in
-            unlockNoSigScriptAddress(noSigAddress: noSigAddress, toAddress: toAddress, amountSats: amountSats, feeSats: feeSats, lockHeight: lockHeight, secretHex: secretHex, redeemScript: redeemScript, isTestnet: isTestnet) { success, result, error in
+            unlockNoSigScriptAddress(noSigAddress: noSigAddress, toAddress: toAddress, amountSats: amountSats, feeSats: feeSats, lockHeight: lockHeight, secretHex: secretHex, redeemScript: redeemScript, isTestnet: isTestnet, changeAddress: changeAddress) { success, result, error in
                 continuation.resume(returning: (success, result, error))
             }
         }
