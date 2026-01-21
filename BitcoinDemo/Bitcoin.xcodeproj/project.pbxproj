@@ -353,7 +353,7 @@
 			repositoryURL = "https://github.com/Marcos-cmyk/Bitcoin.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.9;
+				minimumVersion = 1.1.0;
 			};
 		};
 		04ACA1B52F124AB0000D6D50 /* XCRemoteSwiftPackageReference "SnapKit" */ = {

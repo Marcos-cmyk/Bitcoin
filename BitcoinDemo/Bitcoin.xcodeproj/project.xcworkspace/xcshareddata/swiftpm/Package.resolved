@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Marcos-cmyk/Bitcoin.git",
       "state" : {
-        "revision" : "031d29ed73dbba4b332891e995fa7104dd1f59d0",
-        "version" : "1.0.9"
+        "revision" : "862a32c289e9dcb0fa66e21c3cec195c20ee13d5",
+        "version" : "1.1.0"
       }
     },
     {
